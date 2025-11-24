@@ -1,0 +1,195 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --color-background: 245 247 250;
+  --color-background-elevated: 255 255 255;
+  --color-surface: 255 255 255;
+  --color-surface-muted: 246 248 252;
+  --color-accent: 42 133 255;
+  --color-accent-soft: 217 235 255;
+  --color-accent-strong: 23 99 191;
+  --color-border-subtle: 225 230 240;
+  --color-border-strong: 199 208 223;
+  --color-text-main: 25 28 35;
+  --color-text-muted: 90 104 125;
+  --color-text-inverted: 255 255 255;
+  --color-danger: 215 74 92;
+  --color-warning: 233 150 65;
+  --color-success: 46 170 113;
+  --font-family-base: 'Space Grotesk', system-ui, -apple-system, sans-serif;
+  --font-size-xs: 0.75rem;
+  --font-size-sm: 0.875rem;
+  --font-size-md: 1rem;
+  --font-size-lg: 1.125rem;
+  --font-size-xl: 1.375rem;
+  --line-height-base: 1.6;
+  --radius-sm: 8px;
+  --radius-md: 12px;
+  --radius-lg: 16px;
+  --radius-xl: 24px;
+  --space-xs: 0.25rem;
+  --space-sm: 0.5rem;
+  --space-md: 1rem;
+  --space-lg: 1.5rem;
+  --space-xl: 2rem;
+  color-scheme: light;
+}
+
+[data-theme='dark'] {
+  --color-background: 14 16 24;
+  --color-background-elevated: 24 27 38;
+  --color-surface: 22 25 35;
+  --color-surface-muted: 28 33 45;
+  --color-accent: 88 155 255;
+  --color-accent-soft: 45 73 112;
+  --color-accent-strong: 123 188 255;
+  --color-border-subtle: 45 50 66;
+  --color-border-strong: 66 75 99;
+  --color-text-main: 227 235 252;
+  --color-text-muted: 156 169 192;
+  --color-text-inverted: 12 14 18;
+  --color-danger: 241 121 121;
+  --color-warning: 249 180 90;
+  --color-success: 116 214 146;
+  color-scheme: dark;
+}
+
+[data-theme='blueprint'] {
+  --color-background: 8 16 36;
+  --color-background-elevated: 12 24 48;
+  --color-surface: 14 30 62;
+  --color-surface-muted: 17 37 76;
+  --color-accent: 80 196 255;
+  --color-accent-soft: 52 120 170;
+  --color-accent-strong: 131 233 255;
+  --color-border-subtle: 34 60 102;
+  --color-border-strong: 58 92 140;
+  --color-text-main: 214 230 255;
+  --color-text-muted: 148 175 221;
+  --color-text-inverted: 6 10 20;
+  --color-danger: 255 115 146;
+  --color-warning: 255 197 112;
+  --color-success: 108 225 176;
+  color-scheme: dark;
+}
+
+[data-theme='high-contrast'] {
+  --color-background: 6 6 6;
+  --color-background-elevated: 20 20 20;
+  --color-surface: 0 0 0;
+  --color-surface-muted: 24 24 24;
+  --color-accent: 0 184 255;
+  --color-accent-soft: 0 132 206;
+  --color-accent-strong: 0 220 255;
+  --color-border-subtle: 80 80 80;
+  --color-border-strong: 255 255 255;
+  --color-text-main: 255 255 255;
+  --color-text-muted: 210 210 210;
+  --color-text-inverted: 0 0 0;
+  --color-danger: 255 71 87;
+  --color-warning: 255 192 0;
+  --color-success: 68 221 132;
+  color-scheme: dark;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  font-family: var(--font-family-base);
+  background: rgb(var(--color-background));
+  color: rgb(var(--color-text-main));
+  min-height: 100vh;
+}
+
+#root {
+  min-height: 100vh;
+}
+
+[data-card] {
+  background: rgb(var(--color-surface));
+  border: 1px solid rgb(var(--color-border-subtle));
+  border-radius: var(--radius-lg);
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.06);
+}
+
+.section-grid {
+  display: grid;
+  gap: 1rem;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+}
+
+.button-primary {
+  background: rgb(var(--color-accent));
+  color: rgb(var(--color-text-inverted));
+  border-radius: var(--radius-md);
+  padding: 0.75rem 1.1rem;
+  border: 1px solid rgb(var(--color-border-strong));
+  font-weight: 600;
+  transition: transform 120ms ease, box-shadow 120ms ease, opacity 120ms ease;
+}
+
+.button-primary:hover {
+  transform: translateY(-1px);
+  box-shadow: 0 8px 30px rgba(0, 0, 0, 0.12);
+}
+
+.button-secondary {
+  background: rgb(var(--color-surface-muted));
+  color: rgb(var(--color-text-main));
+  border-radius: var(--radius-md);
+  padding: 0.7rem 1rem;
+  border: 1px solid rgb(var(--color-border-subtle));
+  font-weight: 500;
+}
+
+input,
+select {
+  background: rgb(var(--color-surface));
+  border: 1px solid rgb(var(--color-border-subtle));
+  border-radius: var(--radius-md);
+  padding: 0.6rem 0.75rem;
+  width: 100%;
+  color: inherit;
+}
+
+label {
+  font-size: 0.9rem;
+  font-weight: 600;
+}
+
+.helper-text {
+  color: rgb(var(--color-text-muted));
+  font-size: 0.9rem;
+}
+
+.tab-button {
+  padding: 0.65rem 0.9rem;
+  border-radius: var(--radius-md);
+  border: 1px solid transparent;
+  transition: background 160ms ease, color 160ms ease, border 160ms ease;
+}
+
+.tab-button[data-active='true'] {
+  background: rgb(var(--color-surface-muted));
+  border-color: rgb(var(--color-border-subtle));
+}
+
+.fade-in {
+  animation: fade-in 200ms ease;
+}
+
+@keyframes fade-in {
+  from {
+    opacity: 0;
+    transform: translateY(8px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
